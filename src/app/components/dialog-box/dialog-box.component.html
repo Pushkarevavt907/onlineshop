@@ -1,0 +1,72 @@
+<form *ngIf="formType === 'myForm'" [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>id</mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>image</mat-label>
+        <input matInput formControlName="image">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>catid</mat-label>
+        <input matInput formControlName="catid">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>branid</mat-label>
+        <input matInput formControlName="brandid">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>quantity</mat-label>
+        <input matInput formControlName="quantity">
+      </mat-form-field>
+  
+    <button class="button" mat-flat-button color="primary" type="submit">Добавить Товар</button>
+    <button class="button" mat-flat-button color="primary" (click)="onNoClick" > Отмена</button>
+</form>
+
+
+
+<form *ngIf="formType === 'myForm1'" [formGroup]="myForm1" (ngSubmit)="onSubmit2()" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Имя</mat-label>
+    <input matInput formControlName="first_name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Фамилия</mat-label>
+    <input matInput formControlName="last_name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Почтовый индекс</mat-label>
+    <input matInput formControlName="postal_code">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Адрес</mat-label>
+    <input matInput formControlName="address">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Номер телефона</mat-label>
+    <input matInput formControlName="phone">
+  </mat-form-field>
+
+ 
+  <div class="button-group">
+    <div>
+    <button class="button" mat-flat-button color="primary" type="button" (click)="onNoClick()">Отмена</button>
+   </div> 
+   <div>
+   <button class="button" mat-flat-button color="primary" type="submit2" (click)="onPlaceOrderClick()">Оплатить</button>
+  </div>
+  </div>
+</form>

@@ -1,0 +1,29 @@
+.alll{
+    display: flex;
+    z-index: 99999;
+   
+}
+.knopki{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+   
+}
+
+.p-5 {
+    
+    padding: 2em !important;
+}
+.align-items-center {
+    align-items: 0; 
+}
+.h-100 {
+    z-index: 99999;
+    height: 20px !important;
+}
+.px-5 {
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    
+}

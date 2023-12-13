@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-details">
+        <span class="order-id">Номер заказа: {{ order.id }}</span>
+        <span class="order-status">Статус заказа:<b> {{ order.status }}</b></span>
+        <span class="order-date">Дата заказа: {{ order.order_date | date:'dd MMMM yyyy' }}</span>
+        
+      </div>
+      <div class="order-items">
+        <div class="order-item" *ngFor="let item of order.items">
+          <img class="order-item-image" [src]="item.image" alt="Product Image">
+          <div class="order-item-details">
+            <span class="order-item-title"> {{ item.title2 }}  </span>
+            <span class="order-item-name">  {{ item.brand_info }}|</span>
+            
+            <span class="order-item-quantity">  Кол-во: {{ item.quantity }}|</span>
+            <span class="order-item-size">  Размер: {{ item.size }}|</span>
+            
+            <span class="order-item-price">     Цена: {{ item.price }}RUB</span>
+          </div>
+        </div>
+      </div>
+      <div class="total-price">Общая сумма: {{ order.total_price }}RUB</div>
+      <br>
+      <br>
+      <div class="butw">
+      <button class="button">Отслеживаение заказа</button>
+      <div class="can" *ngIf="canEdit">
+        
+        <button class="button1" (click)="deleteOrder1(order.id)">Удалить заказ</button>
+      
+      
+        </div>
+      <button class="button1" (click)="cancelOrder(order.id)">Отменить заказ</button>
+    </div>
+    <div class="butto">
+      <div class="can" *ngIf="canEdit">
+        
+       
+      
+        <button class="button3" (click)="statusPut(order.id)">Статус: "В пути"</button>
+        <button class="button3" (click)="statusDostavlen(order.id)">Статус: "Доставлен в пункт"</button>
+        <button class="button3" (click)="statuspoluch(order.id)">Статус: "Получен"</button>
+        </div>
+    </div>
+    </div>
+  </div>

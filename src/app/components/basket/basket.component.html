@@ -1,0 +1,59 @@
+<div class="red" *ngIf="canEdit">
+  <button class="button" mat-flat-button color="black" (click)="GetAllusersBasket()">Показать все корзины пользователей</button>
+  <mat-form-field class="example-full-width">
+    <mat-label>email</mat-label>
+    <input matInput formControlName="email1">
+  
+  <button class="button" mat-flat-button color="black" (click)="GetOneuserBasket()">Показать корзину определенного пользователя</button>
+</mat-form-field>
+</div>
+
+<div class="main_block">
+  <div class="card">
+    <div class="scards" *ngFor="let item of basketData">
+      <mat-card class="example-card">
+        <img mat-card-image [src]="item.image" alt="Photo of a Shiba Inu" style="border-radius: 5%;">
+        <mat-card-content>
+          <p *ngIf="canEdit">Id товара:{{item.id}}</p>
+          <p *ngIf="canEdit">Id пользователя:{{item.id_user}}</p>
+          <p>Удочка</p>
+          
+          <p>Производитель: Alter</p>
+          <p>Модель: daawsie</p>
+          
+          <p>Цвет: {{ item.color}} </p>
+          <h3><b>Цена: {{ item.price1 }} RUB</b></h3>
+          
+        </mat-card-content>
+        <mat-card-actions class="centered-actions">
+          <div class="left-actions">
+            <button class="black" mat-flag-button color="primary" (click)="minusItemFromBasket(item.id)">-</button>
+          </div>
+          <div class="center-action">
+            <p><b>Кол-во: {{ item.quantity }}</b></p>
+          </div>
+          <div class="right-actions">
+            <button class="black" mat-flag-button color="primary" (click)="plusItemFromBasket(item.id)">+</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div> 
+  </div>
+</div>
+
+
+
+<div class="burt" *ngIf="basketData && basketData.length > 0">
+  <ng-container *ngIf="basketData && basketData.length > 0">
+    <div class="totprice">
+      <b><p>Общая цена: {{ getTotalPrice() }} RUB</p></b>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="basketData && basketData.length > 0">
+    <div class="button-container">
+      <button class="red" (click)="openDialog()">Заказать</button>
+    </div>
+  </ng-container>
+</div>
+<div class="end"></div>

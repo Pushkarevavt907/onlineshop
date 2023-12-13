@@ -1,0 +1,109 @@
+<div class="main_block">
+  <div class="wrapper">
+    
+    <div class="product-details">
+        
+      <div class="product-images">
+        <img [src]="selectedImage" alt="{{ product.name }}">
+      </div>
+      <br>
+      
+    </div>
+
+ 
+  <div class="text">
+    <div class="txt">
+
+      <p> {{product.catid}}</p>
+    <p> {{product.name}}</p>
+    
+    <p> {{product.title}}</p>
+    
+    </div>
+  </div>
+  <div class="product-colors">
+    <h2>Цвета:</h2>
+    <div class="proddd">
+      <button class="colr" *ngFor="let productProdinf of product.prodInfo"
+      [class.active]="productProdinf.img === selectedImage"
+      [disabled]="productProdinf.img === selectedImage"
+              (click)="changeSelectedImage(productProdinf.img); SelectId(productProdinf.id,productProdinf.img)">
+        {{ productProdinf.color }}
+      </button></div>
+      <br>
+      <h2>Размер:</h2>
+      <button class="colr" *ngFor="let productProdinf of product.prodInfo" [class.active]="productProdinf.img === selectedImage"
+      [disabled]="productProdinf.img === selectedImage">{{ productProdinf.size }}</button>
+    
+  </div>
+    
+
+    <div class="bottom">
+      <div class="price">
+        <div class="reit">
+    <img src="../../../assets/img/star2.png" alt="Описание изображения" style="width:24px;height: 24px;">
+   <b> <span class="rating">{{ averageRating }}</span></b>
+  </div>
+      <H2><b> {{product.price}}RUB</b></H2>
+      </div>
+      <div class="but">
+        <div class="butt">
+          <button class="black" (click)="addToBasket(product.prodInfo[0])" type="button">В корзину</button>
+        </div>
+        <div class="butt">
+          <button class="red" (click)="addToBasket(product.prodInfo[0])" type="button" routerLink="/basket">Купить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="reviews">
+    <h3>Добавить отзыв</h3>
+    <form (submit)="submitReview()">
+      <div class="lab">
+        <label>Рейтинг:</label>
+        
+        <div class="rating">
+          <span class="star" (click)="setRating(1)" [class.selected]="newReview.rating >= 1"></span>
+          <span class="star" (click)="setRating(2)" [class.selected]="newReview.rating >= 2"></span>
+          <span class="star" (click)="setRating(3)" [class.selected]="newReview.rating >= 3"></span>
+          <span class="star" (click)="setRating(4)" [class.selected]="newReview.rating >= 4"></span>
+          <span class="star" (click)="setRating(5)" [class.selected]="newReview.rating >= 5"></span>
+        </div>
+      </div>
+      <br>
+      <div class="lab">
+        <label>Комментарий:</label><br>
+        
+      </div>
+      <textarea [(ngModel)]="newReview.comment" [ngModelOptions]="{standalone: true}" required></textarea>
+      <br>
+      <button type="submit">Отправить отзыв</button>
+    </form>
+    <br>
+<div class="reit">
+  <h2>Отзывы:</h2> 
+      <img src="../../../assets/img/star2.png" alt="Описание изображения" style="width:24px;height: 24px;">
+     <b> <span class="rating">{{ averageRating }}</span></b>
+    </div>
+    <br>
+  <ul>
+   
+    <li *ngFor="let review of reviews">
+      <div class="review">
+        <div class="review-header">
+          <h2>{{ review.user_name }}</h2>
+          <span class="rating">Рейтинг: 
+            <span class="star" [class.selected]="review.rating >= 1"></span>
+            <span class="star" [class.selected]="review.rating >= 2"></span>
+            <span class="star" [class.selected]="review.rating >= 3"></span>
+            <span class="star" [class.selected]="review.rating >= 4"></span>
+            <span class="star" [class.selected]="review.rating >= 5"></span>
+          </span>
+        </div>
+        <p class="comment">Комментарий: {{ review.comment }}</p>
+      </div>
+    </li>
+  </ul>
+</div>

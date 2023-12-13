@@ -1,0 +1,77 @@
+.example-card {
+    
+  max-width:220px;
+    position:inherit;
+    min-width: 200px;
+    
+    
+  }
+  
+  .card{
+    width: 100%;
+    --bs-card-border-width: 0px;
+      display: grid;
+      
+      grid-auto-rows: minmax(100px, auto);
+     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    
+    
+  }
+
+  h3 {
+    margin-bottom: 0px;
+  }
+
+
+  button.black{
+    background-color: #000000; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 15px;
+    width: 110px;
+  }
+  button.black:hover{
+    background-color: #706f6f; 
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 15px;
+    width: 110px;
+  }
+  .mdc-card__actions{
+    min-height: 0px;
+  }
+.scards{
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+  .cat{
+    display: flex;
+    flex-direction: column;
+    padding-right:60px;
+  }
+  .main_block{
+    display: flex;
+    justify-content:baseline;
+    padding-top: 110px;
+    padding-bottom: 50px;
+    padding-left: 180px;
+  }
+ 
+  .mdc-card__media{
+    position: static;
+  }
+  img{
+    height: 200px;
+    width: 100%;
+     
+   }

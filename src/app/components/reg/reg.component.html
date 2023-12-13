@@ -1,0 +1,52 @@
+<div class="overlay">
+<div class="alll">
+<div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+    <div class="card-body p-5 text-center">
+    <div class="mb-md-5 mt-md-4 pb-5">
+    <h2 class="fw-bold mb-2 text-uppercase">Регистрация</h2>
+    <p class="text-white-50 mb-5">Введите данные для создания аккаунта!</p>
+    <form [formGroup]="registerForm" (ngSubmit)="submitRegistration()">
+      <div class="form-outline form-white mb-4">
+        <input formControlName="name" type="text" id="typeNameX" class="form-control form-control-lg" />
+        <label class="form-label" for="typeNameX">Имя</label>
+        <p *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+          <small class="text-danger">Пожалуйста, введите имя</small>
+        </p>
+      </div>
+    <div class="form-outline form-white mb-4">
+    <input formControlName="email" type="email" id="typeEmailX" class="form-control form-control-lg"/>
+    <label class="form-label" for="typeEmailX">Email</label>
+    <p *ngIf="this.registerForm.get('email')?.invalid && this.registerForm.get('email')?.touched"><small class="text-danger">Email введен неправильно</small></p>
+    </div>
+    <div class="form-outline form-white mb-4">
+    <input formControlName="password" type="password" id="typePasswordX" class="form-control form-control-lg"/>
+    <label class="form-label" for="typePasswordX">Пароль</label>
+    <p *ngIf="this.registerForm.get('password')?.invalid && this.registerForm.get('password')?.touched"><small class="text-danger">Пароль должен быть длинее 8 символов</small></p>
+    </div>
+    <button [disabled]="!isFormValid" class="btn btn-outline-light btn-lg px-5" type="submit"> Создать аккаунт</button>
+    </form>
+    </div>
+    <div>
+    <p class="mb-0">Уже есть аккаунт? <a routerLink="/login" class="text-white-50 fw-bold">Вход</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+<style>
+        .overlay {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(0,0,0,0.8); /* цвет затемнения и прозрачность */
+          z-index: 9999; /* чтобы затемнение было поверх всех других элементов на странице */
+        }
+</style>

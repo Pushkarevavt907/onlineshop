@@ -1,0 +1,43 @@
+
+<div class="red" *ngIf="canEdit">
+    <button class="black" mat-flat-button color="black" (click)="openDialog()">Добавить товар</button> 
+    <button class="black" mat-flat-button color="black" (click)="sendEmail()">Отправить на почту количество оставшегося товара</button>
+</div>
+
+ 
+
+<div class ="main_block">
+  
+  
+<div class="card">
+    <div class="scards" *ngFor="let product of products ">
+<mat-card class="example-card">
+    
+  <a [routerLink]="['/product', product.id]">
+    <img mat-card-image src="{{product.image}}" alt="Photo of a Shiba Inu" style="border-radius: 5%;">
+</a>
+ <mat-card-content>
+      <br>
+      <h3>{{product.catid}}</h3> 
+      <h3><b>Модель: {{product.name}}</b></h3>
+       <p> Производитель: {{product.brandid}}</p>
+       <p>{{ truncateText(product.title, 35) }}</p>
+      
+     
+      <h2>Цена: {{product.price}} RUB</h2>
+      <div class="butt">
+        <button class="black" [routerLink]="['/product', product.id]" >Подробнее</button>
+        
+      </div>
+      <div class="butt"*ngIf="canEdit" >
+        <button class="black" (click)="DeleteItem(product.id)" >Удалить</button>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
+</div>

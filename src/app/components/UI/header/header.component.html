@@ -1,0 +1,85 @@
+<mat-toolbar color="">
+    <mat-toolbar-row>
+    <div class="toolbar no-select" routerLink="">
+      <div class="logo">
+      <img src="../../../../assets/img/logo1.png" style="width:250px;">
+    </div>
+    <div class="logo1">
+      <img src="../../../../assets/img/logo2.png" style="width:68px;">
+    </div>
+    
+    </div>
+    
+    <div class="inp">
+      <form class="example-form" (submit)="search()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Поиск</mat-label>
+          <span matPrefix><mat-icon matSuffix>search</mat-icon></span>
+          <input type="text" matInput placeholder="Удочка" [(ngModel)]="searchTerm">
+        </mat-form-field>
+      </form>
+    </div>
+
+      <span class="example-spacer"></span>
+      <div class="znak">
+      <div class="toolbar no-select" >
+        <div class="acc">
+          <ng-container *ngIf="authService.isLoggedIn(); else login">
+    
+              <mat-icon (click)="authService.logout()">exit_to_app</mat-icon>
+              Выйти
+            
+          </ng-container>
+          <ng-template #login>
+           
+              <mat-icon class="fas fa-camera fa-4x" routerLink="login">account_circle_outline</mat-icon>
+              <a routerLink="login">Войти</a>
+           
+          </ng-template>
+        </div>
+        <div class="check">
+      <mat-icon routerLink="order">check_box</mat-icon>
+      <a routerLink="order">Заказы</a>
+      </div>
+      <div class="shop">
+      <mat-icon routerLink="./basket">shopping_cart_checkout</mat-icon>
+      <a routerLink="./basket">Корзина</a>
+      
+      </div>
+      </div>
+    </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <div class="sidebar">
+    <h2>Категории</h2>
+   <div class="cat">
+    <div class="categ">
+    <a href="products" (click)="updatecat('Удочки')" >Удочки</a>
+  </div>
+  <div class="categ">
+    <a href="products" (click)="updatecat('Зимняя рыбалка')">Зимняя рыбалка</a>
+    </div>
+    <div class="categ">
+      <a href="products" (click)="updatecat('Катушки')">Катушки</a>
+      </div>
+    <div class="categ">
+    <a href="products" (click)="updatecat('Cнасти')">Снасти</a>
+    </div>
+    
+  <div class="categ">
+    <a href="products" (click)="updatecat('Лески')">Лески</a>
+  </div>
+  <div class="categ">
+    <a href="products" (click)="updatecat('Крючки')">Крючки</a>
+  </div>
+  <div class="categ">
+    <a href="products" (click)="updatecat('Сети')">Сети</a>
+  </div>
+  <div class="categ">
+    <a href="products" (click)="updatecat('Сети')">Удилища</a>
+  </div>
+  </div>
+</div>
+ 
+  

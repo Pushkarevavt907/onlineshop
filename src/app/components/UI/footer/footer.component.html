@@ -1,0 +1,30 @@
+<mat-toolbar class="footer" color="">
+     <div class="znak">
+      <div class="toolbar no-select" >
+        <div class="acc">
+          <ng-container *ngIf="authService.isLoggedIn(); else login">
+    
+              <mat-icon (click)="authService.logout()">exit_to_app</mat-icon>
+              Выйти
+            
+          </ng-container>
+          <ng-template #login>
+           
+              <mat-icon class="fas fa-camera fa-4x" routerLink="login">account_circle_outline</mat-icon>
+              <a routerLink="login">Войти</a>
+           
+          </ng-template>
+        </div>
+        <div class="check">
+      <mat-icon routerLink="order">check_box</mat-icon>
+      <a routerLink="order">Заказы</a>
+      </div>
+      <div class="shop">
+      <mat-icon routerLink="./basket">shopping_cart_checkout</mat-icon>
+      <a routerLink="./basket">Корзина</a>
+      
+      </div>
+      </div>
+    </div>
+  </mat-toolbar>
+  
